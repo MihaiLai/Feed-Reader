@@ -78,7 +78,7 @@ $(function() {
          * a single .entry element within the .feed container.
          */
         it('are at least a single entry within the .feed container', function() {
-            expect($('.feed .entry-link').size()).toBeGreaterThan(0);
+            expect($('.feed .entry').size()).toBeGreaterThan(0);
         });
     });
     /* This is our fourth test suite named "New Feed Selection"
@@ -97,9 +97,9 @@ $(function() {
         it('is changed when a new feed is loaded', function(done) {           
             loadFeed(1, function() {
                 feed1 = $('.feed').html();
+                expect(feed1).not.toEqual(feed0);
                 done();
-            });
-            expect(feed1).not.toEqual(feed0);       
+            });       
         });
     });
 }());
